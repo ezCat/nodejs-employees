@@ -25,3 +25,5 @@ Dans cette collection, il y aura autant de document que de collaborateurs.
 ## Show collections
 
 Il faut utiliser le verbe GET afin de récupérer des données.
+#CESOIRCHEZAUREL
+ah ouais
