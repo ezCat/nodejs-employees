@@ -13,9 +13,11 @@ var db = new Db('employees', new Server('localhost', 27017));
 
 app.set('view engine', 'ejs');
 
+
+
 //Routes
 
-app.get('/', function(req, res) {
+app.get('/accueil', function(req, res) {
   res.render('index.ejs');
 });
 

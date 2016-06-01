@@ -1,71 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Employees</title>
-	<link rel="stylesheet" type="text/css" href="/node_modules/materialize-css/dist/css/materialize.min.css">
-	<link rel="stylesheet" type="text/css" href="/dist/css/styles.css">
-  <script type="text/javascript" src="/dist/js/ejs.js"></script>
-</head>
-<body>
-
-<nav>
-<div class="nav-wrapper">
-  <a href="#" class="brand-logo" style="margin-left: 30px">Employees</a>
-  <ul id="nav-mobile" class="right hide-on-med-and-down">
-    <li><a href="/collaborateurs">Liste des employés</a></li>
-    <li><a href="/ajouter">Ajouter un employé</a></li>
-  </ul>
-</div>
-</nav>
-
-<div class="container">
-
-<br>
-
-  <table class="users bordered striped">
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Prenom</th>
-      <th>Date de naissance</th>
-      <th>Poste</th>
-      <th>Salaire</th>
-      <th>Date d'entrée</th>
-      <th>Date de sortie</th>
-      <th>Mail</th>
-    </tr>
-  </thead>
-
-  <tbody>
-  <% for(var i=0; i<users.length; i++) {%>
-    <tr class="user">
-      <td><%= users[i].name %></td>
-      <td><%= users[i].prenom %></td>
-      <td><%= users[i].naissance %></td>
-      <td><%= users[i].poste %></td>
-      <td><%= users[i].salaire %></td>
-      <td><%= users[i].date_entry %></td>
-      <td><%= users[i].date_out %></td>
-      <td><%= users[i].mail %></td>
-    </tr>
-  <% } %>
-  </tbody>
+<%- include('navbar-header'); %>
 
 
-  </table>
+<table class="users bordered striped">
+<thead>
+  <tr>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Date de naissance</th>
+    <th>Poste</th>
+    <th>Salaire</th>
+    <th>Date d'entrée</th>
+    <th>Date de sortie</th>
+    <th>Mail</th>
+  </tr>
+</thead>
 
-  </div>
+<tbody>
+<% for(var i=0; i<users.length; i++) {%>
+  <tr class="user">
+    <td><%= users[i].name %></td>
+    <td><%= users[i].prenom %></td>
+    <td><%= users[i].naissance %></td>
+    <td><%= users[i].poste %></td>
+    <td><%= users[i].salaire %></td>
+    <td><%= users[i].date_entry %></td>
+    <td><%= users[i].date_out %></td>
+    <td><%= users[i].mail %></td>
+  </tr>
+<% } %>
+</tbody>
 
-</body>
 
-<script type="text/javascript" src="/node_modules/materialize-css/node_modules/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="/node_modules/materialize-css/dist/js/materialize.min.js"></script>
-<script type="text/javascript">
-  $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
-  });
-</script>
+</table>
 
-</html>
+<%- include('footer'); %>
