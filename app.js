@@ -22,9 +22,10 @@ app.get('/', function(req, res) {
 app.get('/collaborateurs', function(req, res) {
   db.open(function(err, db) {
     var collection = db.collection("employee");
-    var users = collection.find().toArray();
-  // res.render('liste-employes.ejs', users);
-    res.send(users);
+    collection.find().toArray(function(err, result) {
+      if (err) return console.log(err)
+      res.render('liste-employes.ejs', {quotes: result});
+    });
   });
 });
 
