@@ -1,6 +1,3 @@
-// Init var Mongo
-var MongoClient = mongodb.MongoClient;
-
 // Connection URL
 var url = 'mongodb://localhost:27017/employees';
 
@@ -20,11 +17,11 @@ MongoClient.connect(url, function (err, db) {
                       id: i,
                       name: 'Michel',
                       prenom: 'Maud',
-                      naissance: 21/07/1986,
+                      naissance: "21/07/1986",
                       poste: 'DRH',
                       salaire: 1600,
-                      date_entry: 13/07/2008,
-                      date_out: 13/07/2014,
+                      date_entry: "13/07/2008",
+                      date_out: "13/07/2014",
                       photo: null,
                       numero_arrivee: 132567,
                       mail: 'maud.michel@xyz.com'
