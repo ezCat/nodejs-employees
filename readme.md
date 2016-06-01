@@ -22,10 +22,10 @@ Dans cette collection, il y aura autant de document que de collaborateurs.
 }
 </code>
 
-## Show collections
+## Afficher la liste des employés
 
 Il faut utiliser le verbe GET afin de récupérer des données.
-#CESOIRCHEZAUREL
-ah ouais
 
-http://www.liquidweb.com/kb/how-to-install-mongodb-on-ubuntu-14-04/
+## Saisir un utilisateur
+
+Running out of time (4 hours..).
