@@ -1,5 +1,8 @@
-// Require module
-var mongodb = require('mongodb');
+// Init var Mongo
+var MongoClient = mongodb.MongoClient;
+
+// Connection URL
+var url = 'mongodb://localhost:27017/employees';
 
 // Use connect method to connect to the Server
 MongoClient.connect(url, function (err, db) {
@@ -10,22 +13,31 @@ MongoClient.connect(url, function (err, db) {
     console.log('Connection established to', url);
 
     // Get the documents collection
-    var collection = db.collection('users');
+    var collection = db.collection('collaborateurs');
 
-    //Create some users
-    var user1 = {name: 'modulus admin', age: 42, roles: ['admin', 'moderator', 'user']};
-    var user2 = {name: 'modulus user', age: 22, roles: ['user']};
-    var user3 = {name: 'modulus super admin', age: 92, roles: ['super-admin', 'admin', 'moderator', 'user']};
-
+    for (var i = 0; i < 5; i++) {
+      var user = {
+                      id: i,
+                      name: 'Michel',
+                      prenom: 'Maud',
+                      naissance: 21/07/1986,
+                      poste: 'DRH',
+                      salaire: 1600,
+                      date_entry: 13/07/2008,
+                      date_out: 13/07/2014,
+                      photo: null,
+                      numero_arrivee: 132567,
+                      mail: 'maud.michel@xyz.com'
+                    }
+      
     // Insert some users
-    collection.insert([user1, user2, user3], function (err, result) {
+    collection.insert([user], function (err, result) {
       if (err) {
         console.log(err);
       } else {
         console.log('Inserted %d documents into the "users" collection. The documents inserted with "_id" are:', result.length, result);
       }
-      //Close connection
-      db.close();
     });
+    };
   }
 });
