@@ -24,7 +24,7 @@ app.get('/collaborateurs', function(req, res) {
     var collection = db.collection("employee");
     collection.find().toArray(function(err, result) {
       if (err) return console.log(err)
-      res.render('liste-employes.ejs', {quotes: result});
+      res.render('liste-employes.ejs', {users: result});
     });
   });
 });

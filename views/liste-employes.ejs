@@ -21,14 +21,20 @@
 
 <br>
 
-  <ul class="quotes">
-  <% for(var i=0; i<quotes.length; i++) {%>
-    <li class="quote">
-      <span><%= quotes[i].name %></span>
-      <span><%= quotes[i].quote %></span>
-    </li>
+  <table class="users">
+  <% for(var i=0; i<users.length; i++) {%>
+    <tr class="user">
+      <td><%= users[i].name %></td>
+      <td><%= users[i].prenom %></td>
+      <td><%= users[i].naissance %></td>
+      <td><%= users[i].poste %></td>
+      <td><%= users[i].salaire %></td>
+      <td><%= users[i].date_entry %></td>
+      <td><%= users[i].date_out %></td>
+      <td><%= users[i].mail %></td>
+    </tr>
   <% } %>
-  </ul>
+  </table>
 
 </body>
 
