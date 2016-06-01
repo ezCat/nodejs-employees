@@ -3,8 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<title>Employees</title>
-	<link rel="stylesheet" type="text/css" href="node_modules/materialize-css/dist/css/materialize.min.css">
-	<link rel="stylesheet" type="text/css" href="dist/css/styles.css">
+	<link rel="stylesheet" type="text/css" href="/node_modules/materialize-css/dist/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="/dist/css/styles.css">
+  <script type="text/javascript" src="/dist/js/ejs.js"></script>
 </head>
 <body>
 
@@ -20,19 +21,10 @@
 
 <br>
 
-<table>
-<% for(var i=0; i < users.length; i++) { %>
-   <tr>
-     <td><%= users[i].id %></td>
-     <td><%= users[i].name %></td>
-   </tr>
-<% } %>
-</table>
-
 </body>
 
-<script type="text/javascript" src="node_modules/materialize-css/node_modules/jquery/dist/jquery.js"></script>
-<script type="text/javascript" src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+<script type="text/javascript" src="/node_modules/materialize-css/node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="/node_modules/materialize-css/dist/js/materialize.min.js"></script>
 <script type="text/javascript">
   $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month

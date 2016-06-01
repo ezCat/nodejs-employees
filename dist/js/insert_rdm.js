@@ -13,7 +13,7 @@ MongoClient.connect(url, function (err, db) {
     console.log('Connection established to', url);
 
     // Get the documents collection
-    var collection = db.collection('collaborateurs');
+    var collection = db.collection("employee");
 
     for (var i = 0; i < 5; i++) {
       var user = {
@@ -29,15 +29,15 @@ MongoClient.connect(url, function (err, db) {
                       numero_arrivee: 132567,
                       mail: 'maud.michel@xyz.com'
                     }
-      
-    // Insert some users
-    collection.insert([user], function (err, result) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log('Inserted %d documents into the "users" collection. The documents inserted with "_id" are:', result.length, result);
-      }
-    });
+        
+      // Insert some users
+      collection.insert([user], function (err, result) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('Inserted %d documents into the "users" collection. The documents inserted with "_id" are:', result.length, result);
+        }
+      });
     };
   }
 });
