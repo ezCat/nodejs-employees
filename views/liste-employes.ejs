@@ -21,7 +21,21 @@
 
 <br>
 
-  <table class="users">
+  <table class="users highlight bordered">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Prenom</th>
+      <th>Date de naissance</th>
+      <th>Poste</th>
+      <th>Salaire</th>
+      <th>Date d'entrée</th>
+      <th>Date de sortie</th>
+      <th>Mail</th>
+    </tr>
+  </thead>
+
+  <tbody>
   <% for(var i=0; i<users.length; i++) {%>
     <tr class="user">
       <td><%= users[i].name %></td>
@@ -34,6 +48,9 @@
       <td><%= users[i].mail %></td>
     </tr>
   <% } %>
+  </tbody>
+
+
   </table>
 
 </body>
