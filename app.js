@@ -5,6 +5,7 @@ var Db = require('mongodb').Db,
     MongoClient = require('mongodb').MongoClient,
     Server = require('mongodb').Server,
     assert = require('assert');
+var $ = require('jquery');
 
 var app = express();
 app.use(express.static(__dirname));
@@ -28,6 +29,13 @@ app.get('/collaborateurs', function(req, res) {
       if (err) return console.log(err)
       res.render('liste-employes.ejs', {users: result});
     });
+  });
+});
+
+app.post('/ajouter_collaborateur', function(req, res) {
+    db.open(function(err, db) {
+    var collection = db.collection("employee");
+    collection.insert(req);
   });
 });
 
