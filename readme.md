@@ -28,4 +28,4 @@ Il faut utiliser le verbe GET afin de récupérer des données.
 
 ## Saisir un utilisateur
 
-Running out of time (4 hours..).
+L'ajout d'utilisateur se réalise à l'aide du formulaire, la redirection suite à l'ajout ne fonctionne cependant pas.

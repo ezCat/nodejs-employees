@@ -7,12 +7,17 @@ var Db = require('mongodb').Db,
     assert = require('assert');
 var $ = require('jquery');
 
+var bodyParser = require('body-parser');
+
 var app = express();
 app.use(express.static(__dirname));
 
 var db = new Db('employees', new Server('localhost', 27017));
 
 app.set('view engine', 'ejs');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
@@ -35,7 +40,35 @@ app.get('/collaborateurs', function(req, res) {
 app.post('/ajouter_collaborateur', function(req, res) {
     db.open(function(err, db) {
     var collection = db.collection("employee");
-    collection.insert(req);
+    var id = 6,
+        nom = req.body.nom,
+        prenom = req.body.prenom,
+        naissance = req.body.naissance,
+        entry = req.body.entry,
+        out = req.body.out, 
+        poste = req.body.poste,
+        salaire = req.body.salaire,
+        numero = req.body.numero,
+        mail = req.body.mail;
+
+    var json = {
+      'id': id,
+      'name': nom,
+      'prenom': prenom,
+      'naissance': naissance,
+      'poste': poste,
+      'salaire': salaire,
+      'entry': entry,
+      'out': out,
+      'numero': numero,
+      'mail': mail
+    };
+
+    collection.insert(json, function(err) {
+      if (err) console.log('Erreur');
+      console.log('Ajout' + json);
+      res.location('/collaborateurs');
+    });
   });
 });
 
