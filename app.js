@@ -89,6 +89,20 @@ app.post('/collaborateurs/new', function (req, res) {
     res.redirect('/collaborateurs');
 });
 
+// Obtenir les statistiques
+app.get('/statistiques', function (req, res) {
+        // Cnx à la base
+    db.open(function (err, db) {
+        var collection = db.collection("employee");
+        // Requete sur la base + convertir en tableau les résultats
+        collection.find().toArray(function (err, result) {
+            if (err) return console.log(err)
+            // Retourne la vue avec comme param le résultat
+            res.render('statistiques.ejs', {stats: 'result'});
+        });
+    });
+});
+
 // Obtenir les informations d'un seul employé
 app.get('/collaborateur/:nom/:prenom', function (req, res) {
     res.render('employe.ejs');
