@@ -1,0 +1,27 @@
+<%- include('navbar-header'); %>
+
+
+<table class="users bordered striped">
+<thead>
+  <tr>
+    <th>Moyenne</th>
+    <th>Maximum</th>
+    <th>Minimum</th>
+  </tr>
+</thead>
+
+<tbody>
+<% for(var i=0; i<stats.length; i++) {%>
+  <tr class="stat">
+    <td><%= stats[i].name %></td>
+    <td><%= stats[i].prenom %></td>
+    <td><%= stats[i].naissance %></td>
+  </tr>
+<% } %>
+
+</tbody>
+
+
+</table>
+
+<%- include('footer'); %>
