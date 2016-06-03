@@ -95,10 +95,20 @@ app.get('/statistiques', function (req, res) {
     db.open(function (err, db) {
         var collection = db.collection("employee");
         // Requete sur la base + convertir en tableau les résultats
-        collection.find().toArray(function (err, result) {
+        var stats = collection.aggregate([
+           {
+             $group: {
+               _id: "$name",
+               min: { $min: "$salaire"},
+               max: { $max: "$salaire" },
+               avg: { $avg: "$salaire" }
+             }
+           }
+        ]).toArray(function (err, result) {
             if (err) return console.log(err)
             // Retourne la vue avec comme param le résultat
-            res.render('statistiques.ejs', {stats: 'result'});
+            // res.render('statistiques.ejs', {stats: 'result'});
+            res.send(result);
         });
     });
 });
